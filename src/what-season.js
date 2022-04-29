@@ -11,19 +11,31 @@ const { NotImplementedError } = require('../extensions/index.js');
  * getSeason(new Date(2020, 02, 31)) => 'spring'
  * 
  */
-function getSeason(dateArr) {
-  // let result = '';
-  // if(typeof(dateArr) === 'object')
-  // {
-  //     (dateArr.getMonth() === 11 || dateArr.getMonth() === 0 || dateArr.getMonth() === 1)?
-  //       result = 'winter' :  
-  //         (dateArr.getMonth() === 2 || dateArr.getMonth() === 3 || dateArr.getMonth() === 4)? 
-  //           result = 'spring' : 
-  //             (dateArr.getMonth() === 5 || dateArr.getMonth() === 6 || dateArr.getMonth() === 7)?
-  //             result = 'summer' : result = 'autumn';
-  //     return result;
-  // }
-  // else return Error('Invalid date!'); 
+function getSeason(dateArr) 
+{
+  let result = '';
+  if(!dateArr)
+  {
+    return 'Unable to determine the time of year!';
+  }
+  try{
+      if(dateArr.hasOwnProperty('getMonth') === true)
+      {
+        throw new Error();
+      }
+        (dateArr.getMonth() === 11 || dateArr.getMonth() === 0 || dateArr.getMonth() === 1)?
+          result = 'winter' :  
+            (dateArr.getMonth() === 2 || dateArr.getMonth() === 3 || dateArr.getMonth() === 4)? 
+              result = 'spring' : 
+                (dateArr.getMonth() === 5 || dateArr.getMonth() === 6 || dateArr.getMonth() === 7)?
+                result = 'summer' : result = 'autumn';
+        return result;
+    }
+    
+    catch (error) 
+    {
+      throw new Error('Invalid date!');
+    }
 } 
 
 module.exports = {
