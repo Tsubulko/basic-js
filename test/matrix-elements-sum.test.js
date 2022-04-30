@@ -6,7 +6,7 @@ it.optional = testOptional;
 
 Object.freeze(assert);
 
-describe('Matrix elements sum', () => {
+describe.only('Matrix elements sum', () => {
   it.optional('should return the sum of the matrix elements that are not below 0', () => {
     assert.strictEqual(getMatrixElementsSum([
       [0, 1, 1, 2],
